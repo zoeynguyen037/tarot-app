@@ -96,9 +96,7 @@ textarea:focus {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(196,160,168,0.35);
 }
-.stButton > button:active {
-    transform: translateY(0);
-}
+.stButton > button:active { transform: translateY(0); }
 .stButton > button:disabled {
     background: #e8ddd8;
     color: #c0b0ac;
@@ -153,6 +151,8 @@ hr {
     line-height: 1.9;
     color: #4a3c38;
     white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: visible;
     box-shadow: 0 2px 12px rgba(180,140,130,0.08);
 }
 .section-label {
@@ -290,7 +290,7 @@ Hãy đọc bài cho tôi."""
             client = anthropic.Anthropic(api_key=api_key)
             response = client.messages.create(
                 model="claude-opus-4-6",
-                max_tokens=1200,
+                max_tokens=2048,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}],
             )
