@@ -9,17 +9,18 @@ st.set_page_config(
     layout="centered",
 )
 
-# ── CUSTOM CSS — minimalist ───────────────────────────────────────────────────
+# ── CUSTOM CSS — light pastel ─────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400&display=swap');
 
 /* Background & base */
 html, body, [data-testid="stAppViewContainer"] {
-    background-color: #0e0e0e;
-    color: #e8e0d5;
+    background-color: #faf7f4;
+    color: #3d3530;
 }
 [data-testid="stHeader"] { background: transparent; }
+[data-testid="stMain"] { background-color: #faf7f4; }
 
 /* Hide Streamlit branding */
 #MainMenu, footer, header { visibility: hidden; }
@@ -30,128 +31,145 @@ h1 {
     font-weight: 300;
     font-size: 2.6rem;
     letter-spacing: 0.12em;
-    color: #e8e0d5;
+    color: #3d3530;
     text-align: center;
     margin-bottom: 0.1rem;
 }
 .subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #7a7060;
+    color: #b09a93;
     text-align: center;
     margin-bottom: 2.5rem;
 }
 label, .stSelectbox label, .stTextArea label {
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.72rem !important;
-    letter-spacing: 0.18em !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.2em !important;
     text-transform: uppercase !important;
-    color: #7a7060 !important;
+    color: #b09a93 !important;
 }
 
 /* Input fields */
-textarea, .stSelectbox > div > div {
-    background-color: #1a1a1a !important;
-    border: 1px solid #2e2e2e !important;
-    border-radius: 4px !important;
-    color: #e8e0d5 !important;
+textarea {
+    background-color: #ffffff !important;
+    border: 1px solid #e8ddd8 !important;
+    border-radius: 6px !important;
+    color: #3d3530 !important;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.92rem !important;
 }
-textarea:focus, .stSelectbox > div > div:focus-within {
-    border-color: #8b7355 !important;
-    box-shadow: none !important;
+textarea:focus {
+    border-color: #c4a0a8 !important;
+    box-shadow: 0 0 0 2px rgba(196,160,168,0.15) !important;
+}
+.stSelectbox > div > div {
+    background-color: #ffffff !important;
+    border: 1px solid #e8ddd8 !important;
+    border-radius: 6px !important;
+    color: #3d3530 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.88rem !important;
 }
 
 /* Button */
 .stButton > button {
     width: 100%;
-    background: transparent;
-    border: 1px solid #8b7355;
-    color: #c4a882;
+    background: #c4a0a8;
+    border: none;
+    color: #ffffff;
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 40px;
     cursor: pointer;
     transition: all 0.25s ease;
     margin-top: 0.5rem;
 }
 .stButton > button:hover {
-    background: #8b7355;
-    color: #0e0e0e;
+    background: #b08a93;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(196,160,168,0.35);
 }
 .stButton > button:active {
-    transform: scale(0.99);
+    transform: translateY(0);
+}
+.stButton > button:disabled {
+    background: #e8ddd8;
+    color: #c0b0ac;
 }
 
 /* Divider */
 hr {
     border: none;
-    border-top: 1px solid #2e2e2e;
+    border-top: 1px solid #edddd8;
     margin: 2rem 0;
 }
 
 /* Card display row */
 .card-row {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 1.5rem 0;
 }
 .card-box {
     flex: 1;
-    background: #141414;
-    border: 1px solid #2e2e2e;
-    border-radius: 4px;
-    padding: 1.2rem 1rem;
+    background: #ffffff;
+    border: 1px solid #edddd8;
+    border-radius: 12px;
+    padding: 1.3rem 1rem;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(180,140,130,0.08);
 }
 .card-position {
     font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #7a7060;
+    color: #b09a93;
     margin-bottom: 0.5rem;
 }
 .card-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
-    color: #c4a882;
+    color: #8a5f68;
 }
 
 /* Reading output */
 .reading-box {
-    background: #111111;
-    border-left: 2px solid #8b7355;
-    padding: 1.8rem 2rem;
-    border-radius: 0 4px 4px 0;
+    background: #ffffff;
+    border: 1px solid #edddd8;
+    border-left: 3px solid #c4a0a8;
+    padding: 2rem 2.2rem;
+    border-radius: 0 12px 12px 0;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.08rem;
-    line-height: 1.85;
-    color: #ddd5c8;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #4a3c38;
     white-space: pre-wrap;
+    box-shadow: 0 2px 12px rgba(180,140,130,0.08);
 }
 .section-label {
     font-family: 'Inter', sans-serif;
     font-size: 0.65rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #7a7060;
+    color: #b09a93;
     margin: 1.8rem 0 0.6rem 0;
 }
 
-/* Spinner override */
+/* Spinner */
 [data-testid="stSpinner"] p {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
-    color: #7a7060;
+    color: #b09a93;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -162,7 +180,6 @@ st.markdown("<h1>🔮 Tarot</h1>", unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Quá Khứ · Hiện Tại · Tương Lai</p>', unsafe_allow_html=True)
 
 # ── API KEY ───────────────────────────────────────────────────────────────────
-# Try secrets first, then session state input
 api_key = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
 if not api_key:
     api_key = st.session_state.get("api_key", "")
@@ -225,7 +242,6 @@ if not ready and (question or cards_selected):
 
 # ── READING ───────────────────────────────────────────────────────────────────
 if read_btn and ready:
-    # Show selected cards
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown(f"""
     <div class="card-row">
@@ -244,7 +260,6 @@ if read_btn and ready:
     </div>
     """, unsafe_allow_html=True)
 
-    # Build prompt
     system_prompt = """Bạn là người đọc bài Tarot theo phong cách tâm lý học — không bói toán, không phán xét, không dùng ngôn ngữ huyền bí cứng nhắc. Bạn đọc bài như một người bạn thông minh, empathetic, giúp người đọc tự nhìn lại mình.
 
 Phong cách viết:
@@ -291,7 +306,6 @@ Hãy đọc bài cho tôi."""
         except Exception as e:
             st.error(f"Có lỗi xảy ra: {str(e)}")
 
-    # Reset button
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("↺ Xem bài khác"):
         st.rerun()
