@@ -1,7 +1,7 @@
 import streamlit as st
 import anthropic
 import random
-from cards import TAROT_CARDS
+from tarot_data import TAROT_CARDS
 
 # ─────────────────────────────────────────────
 # PAGE CONFIG
